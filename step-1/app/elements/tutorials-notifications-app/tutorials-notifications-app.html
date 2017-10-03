@@ -1,0 +1,40 @@
+<!--
+
+ -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+
+<dom-module id="tutorials-notifications-app">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+    </style>
+
+    <br>
+    <paper-button class="custom green" on-tap="onShowToast">Button</paper-button>
+
+    <paper-toast id="toast"></paper-toast>
+  </template>
+  <script>
+  (() => {
+    'use strict';
+
+    Polymer({
+      is: 'tutorials-notifications-app',
+
+      onShowToast: function(e, detail) {
+        console.log("test");
+        this.$.toast.text = 'I\'m a toast!';
+        this.$.toast.show();
+      }
+    });
+  })();
+  </script>
+</dom-module>
