@@ -1,0 +1,62 @@
+<!--
+
+ -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+
+<link rel="import" href="../base-notification/base-notification.html">
+
+<dom-module id="tutorials-notifications-app">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+      }
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+    </style>
+
+    <base-notification id="notification"></base-notification>
+
+    <br>
+    <paper-button class="green" on-tap="onShowToast">Toast</paper-button>
+    <br>
+    <br>
+    <paper-button class="indigo" on-tap="onNotifyToolbar">Toolbar</paper-button>
+
+    <paper-toast id="toast"></paper-toast>
+  </template>
+  <script>
+  (() => {
+    'use strict';
+
+    Polymer({
+      is: 'tutorials-notifications-app',
+
+      onShowToast: function(e, detail) {
+        this.$.toast.text = 'I\'m a toast!';
+        this.$.toast.show();
+      },
+
+      onNotifyToolbar: function(e, detail) {
+        console.log('add notification');
+      },
+
+      onNotifySystem: function(e, detail) {
+        this.$.notification.notify({'title': 'title', 'body': 'body', 'options': {'tag': 'notification-tutorial'}});
+      }
+    });
+  })();
+  </script>
+</dom-module>

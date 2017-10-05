@@ -1,0 +1,16 @@
+{
+  "name": "tutorials-notifications",
+  "version": "1.0.0",
+  "dependencies": {
+    "bits-base": "^2.0.0"
+  },
+  "contentElement": "tutorials-notifications-app",
+  "contentImport": "/elements/tutorials-notifications-app/tutorials-notifications-app.html",
+  "appDir": "app",
+  "scopes": [
+    {"name": "public", "displayName": "Public"}
+  ],
+  "displayName": "Tutorials Notifications",
+  "icon": "alarm",
+  "category": "Tutorials"
+}
