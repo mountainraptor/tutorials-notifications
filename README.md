@@ -45,6 +45,11 @@ Next, have an element to show the user. You could have a static message in the c
 <paper-toast id="toast"></paper-toast>
 ```
 
+After having an element to show the user, give a reason to show the element. In this case, it is on a button press.
+```html
+<paper-button class="green" on-tap="onShowToast">Toast</paper-button>
+```
+
 Finally, you can show the toast with javascript (after setting the message in this example).
 ```javascript
 onShowToast: function(e, detail) {
@@ -58,3 +63,42 @@ The step-1 folder shows an example of a paper-toast activated by a button.
 # <a name="step-2"></a>Step 2: Notify with a base-toolbar notification
 
 # <a name="step-3"></a>Step 3: Notify with a push notification
+You can notify the user with the host device's notification system - this is extremely useful for mobile clients that can vibrate or alert a user with a sound.
+
+First, you need to import the base-notification element.
+```html
+<link rel="import" href="../base-notification/base-notification.html">
+```
+
+Next, get the element into your page.
+```html
+<base-notification id="notification"></base-notification>
+```
+
+Give the user a different button
+``` html
+<paper-button class="red" on-tap="onNotifySystem">System</paper-button>
+```
+
+Finally, you can show the system notification.
+```javascript
+onNotifySystem: function(e, detail) {
+  this.$.notification.notify({'title': 'title', 'body': 'body', 'options': {'tag': 'notification-tutorial'}});
+}
+```
+
+If you are looking for ways to configure the system notification, check out the BITS folder /bits/app/elements/base-notification/base-notification.html
+
+```javascript
+icon: this.icon,
+data: data,
+body: body,
+link: this.link,
+requireInteraction: this.requireInteraction,
+tag: this.tag,
+timeout: this.timeout,
+vibrate: this.vibrate,
+silent: this.silent
+```
+
+The step-3 folder shows an example of a system notification activated by a button.
